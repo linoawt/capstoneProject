@@ -148,6 +148,7 @@ body {
 /* Search Bar */
 .search-section {
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .search-bar {
