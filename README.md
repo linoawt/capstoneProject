@@ -5,8 +5,8 @@ A responsive Solar System explorer built with **semantic HTML5**, **modern CSS3*
 ---
 
 ## 🚀 Live Demo
-- **Deployment URL**: [Your Netlify / Vercel Link Here]
-- **Repository**: [https://github.com/linostudiong/planet-explorer](https://github.com/linostudiong/planet-explorer)
+- **Deployment URL**: 
+- **Repository**: https://github.com/linoawt/capstoneProject
 
 ---
 
@@ -50,7 +50,7 @@ planet-explorer/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/linostudiong/planet-explorer.git
+   git clone https://github.com/linoawt/capstoneProject.git
    cd planet-explorer
    ```
 
@@ -82,6 +82,6 @@ planet-explorer/
 ---
 
 ## 👥 Contributors & Credits
-- **Team Lead:** Azibapu Success ([GitHub Profile](https://github.com/linostudiong))
-- **Design:** [Amaka N](https://amakandukwu.com)
+- **Team Lead:** Azibapu Success ([GitHub Profile](https://github.com/linoawt))
+- **Design:** [Amaka N](amakandukwu)
 - **Institution:** [TSAcademy Online](https://tsacademyonline.com/)
