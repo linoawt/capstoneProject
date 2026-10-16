@@ -1,12 +1,14 @@
 # Planet Explorer - Capstone Web Application
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f3868c3b-2bc3-481d-b6bc-a9371eca22c8/deploy-status)](https://app.netlify.com/projects/capstone-planetary/deploys)
+
 A responsive Solar System explorer built with **semantic HTML5**, **modern CSS3**, and **vanilla JavaScript** using the **Fetch API**. This application fetches and displays planetary data, supports dark and light appearance modes with persistence, and features a comparative NASA planetary facts table.
 
 ---
 
 ## 🚀 Live Demo
-- **Deployment URL**: 
-- **Repository**: https://github.com/linoawt/capstoneProject
+- **Deployment URL**: [https://capstone-planetary.netlify.app](https://capstone-planetary.netlify.app)
+- **Repository**: [https://github.com/linoawt/capstoneProject](https://github.com/linoawt/capstoneProject)
 
 ---
 
@@ -36,7 +38,7 @@ A responsive Solar System explorer built with **semantic HTML5**, **modern CSS3*
 
 ## 📁 Project Structure
 ```text
-planet-explorer/
+capstoneProject/
 ├── index.html        # Semantic HTML layout and templates
 ├── style.css         # CSS design system, CSS variables & media queries
 ├── script.js         # JavaScript Fetch API logic, search & theme toggle
@@ -51,7 +53,7 @@ planet-explorer/
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/linoawt/capstoneProject.git
-   cd planet-explorer
+   cd capstoneProject
    ```
 
 2. **Run locally using any static web server:**
@@ -83,5 +85,5 @@ planet-explorer/
 
 ## 👥 Contributors & Credits
 - **Team Lead:** Azibapu Success ([GitHub Profile](https://github.com/linoawt))
-- **Design:** [Amaka N](amakandukwu)
+- **Design:** [Amaka N](https://amakandukwu.com)
 - **Institution:** [TSAcademy Online](https://tsacademyonline.com/)
