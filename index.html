@@ -1,16 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planet Explorer - Capstone project for solar system planetary search and NASA facts.">
+  <title>Planet Explorer</title>
+
+  <!-- Google Fonts: Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="48" cy="32" rx="20" ry="20" fill="currentColor" />
+          <ellipse cx="48" cy="32" rx="42" ry="14" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="140 30" transform="rotate(-20 48 32)" />
+          <circle cx="32" cy="10" r="3" fill="currentColor" />
+          <circle cx="20" cy="18" r="1.8" fill="currentColor" />
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">planet</span>
+          <span class="logo-subtitle">creative world</span>
+        </div>
+      </div>
 
-    </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark and light theme">
+        <span id="theme-text" class="theme-text">DARK</span>
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
     <main>
+      <!-- Search Form -->
+      <section class="search-section" aria-label="Planet search">
+        <form id="search-form" class="search-bar" role="search" novalidate>
+          <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+          <input 
+            type="text" 
+            id="planet-input" 
+            class="search-input" 
+            placeholder="Search planet name..." 
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search planet name"
+          >
+          <span id="search-error" class="search-error hidden" aria-live="polite">No results</span>
+          <button type="submit" id="search-btn" class="search-btn">Search</button>
+        </form>
+      </section>
 
+      <!-- Planet Display Card -->
+      <section class="planet-display-section" aria-label="Planet details">
+        <!-- Success Card -->
+        <article id="planet-card" class="planet-card">
+          <div class="planet-header">
+            <img id="planet-image" class="planet-avatar" src="https://anurella.github.io/images/planets/earth.jpg" alt="Earth thumbnail" />
+            <div class="planet-heading-info">
+              <h1 id="planet-name" class="planet-name">Earth</h1>
+              <span id="planet-type" class="planet-type">Terrestrial</span>
+            </div>
+          </div>
+
+          <p id="planet-description" class="planet-description">
+            The only known planet to support life, with liquid water on its surface.
+          </p>
+
+          <!-- Key Metrics Box -->
+          <div class="planet-stats-box">
+            <div class="stat-item">
+              <span class="stat-label">Gravity</span>
+              <span id="stat-gravity" class="stat-value">9.8</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Mass</span>
+              <span id="stat-mass" class="stat-value">0.00315</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Period</span>
+              <span id="stat-period" class="stat-value">365</span>
+            </div>
+          </div>
+
+          <!-- Secondary Details Grid -->
+          <div class="planet-details-grid">
+            <div class="detail-item">
+              <i class="fa-solid fa-temperature-half detail-icon" aria-hidden="true"></i>
+              <span id="detail-temp" class="detail-value">288</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-moon detail-icon" aria-hidden="true"></i>
+              <span id="detail-moons" class="detail-value">1</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-circle detail-icon" aria-hidden="true"></i>
+              <span id="detail-diameter" class="detail-value">12756</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-regular fa-sun detail-icon" aria-hidden="true"></i>
+              <span id="detail-distance" class="detail-value">149.6</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Error Card -->
+        <article id="error-card" class="error-card hidden" aria-live="assertive">
+          <h2 class="error-title">No results found!</h2>
+          <p class="error-desc">We couldn't find any planet matching your search. Please double-check the name and try again.</p>
+        </article>
+      </section>
+
+      <!-- Planetary Facts Table Section -->
+      <section class="table-section" aria-labelledby="table-heading">
+        <h2 id="table-heading" class="table-heading">Planetary Facts at a Glance</h2>
+        <p class="table-subtitle">
+          Below is a comparative table of major planets in our solar system. The data highlights key physical properties used by astronomers and researchers worldwide.
+        </p>
+
+        <h3 class="table-caption-title">Data about the planets of our solar system (Planetary facts taken from NASA)</h3>
+
+        <div class="table-wrapper">
+          <table class="nasa-table">
+            <thead>
+              <tr>
+                <th colspan="2" class="th-blank" scope="colgroup"></th>
+                <th scope="col" class="th-col">Name</th>
+                <th scope="col" class="th-col">Mass (10<sup>24</sup>kg)</th>
+                <th scope="col" class="th-col">Diameter (km)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Terrestrial Planets -->
+              <tr>
+                <th scope="rowgroup" rowspan="4" colspan="2" class="category-cell terrestrial-cell">
+                  Terrestial Planets
+                </th>
+                <td class="td-name">Mercury</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+              <tr>
+                <td class="td-name">Venus</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+              <tr>
+                <td class="td-name">Earth</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+              <tr>
+                <td class="td-name">Mars</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+
+              <!-- Jovian Planets -->
+              <tr>
+                <th scope="rowgroup" rowspan="4" class="category-cell jovian-cell">
+                  Jovian<br>Planets
+                </th>
+                <th scope="rowgroup" rowspan="2" class="category-subcell gas-cell">
+                  Gas Giants
+                </th>
+                <td class="td-name">Jupiter</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+              <tr>
+                <td class="td-name">Saturn</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+              <tr>
+                <th scope="rowgroup" rowspan="2" class="category-subcell ice-cell">
+                  Ice Giants
+                </th>
+                <td class="td-name">Uranus</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+              <tr>
+                <td class="td-name">Neptune</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+
+              <!-- Dwarf Planets -->
+              <tr>
+                <th scope="row" colspan="2" class="category-cell dwarf-cell">
+                  Dwarf Planets
+                </th>
+                <td class="td-name">Pluto</td>
+                <td class="td-num">0.330</td>
+                <td class="td-num">4,878</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-col footer-about">
+        <h4 class="footer-title">About</h4>
+        <p class="footer-text">Azibapu Success (Team Lead)</p>
+      </div>
+
+      <div class="footer-col footer-credits">
+        <p>&copy;2026 Design by <a href="https://amakandukwu.com" target="_blank" rel="noopener noreferrer">Amaka N</a></p>
+        <p>Built by <a href="https://github.com/linostudiong/planet-explorer" target="_blank" rel="noopener noreferrer">GroupName</a>. All rights reserved</p>
+        <p><a href="https://tsacademyonline.com/" target="_blank" rel="noopener noreferrer">TSAcademy</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
