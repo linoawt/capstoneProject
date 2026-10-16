@@ -84,6 +84,6 @@ capstoneProject/
 ---
 
 ## 👥 Contributors & Credits
-- **Team Lead:** Azibapu Success ([GitHub Profile](https://github.com/linoawt))
+- **Developer:** Azibapu Success ([GitHub Profile](https://github.com/linoawt))
 - **Design:** [Amaka N](https://amakandukwu.com)
 - **Institution:** [TSAcademy Online](https://tsacademyonline.com/)
